@@ -1,0 +1,164 @@
+      /*
+            p {
+               background-color :aqua; 
+            }
+
+            .myspecialstyle
+            {
+                background-color: bisque;
+            }
+
+            .redborder
+            {
+                border : 3px solid red;
+                border-radius: 10px;
+            }
+
+            .avathar
+            {
+                border-radius: 128px;
+                border: 2px solid gray;;
+            }
+
+            .box
+            {
+                width: 200px;
+                height: 200px;
+                border: 1px solid red;
+               
+            }
+
+            p:hover
+            {
+                background-color: blue;
+                color: white;
+            }
+
+            p:active
+            {
+                background-color: navy;
+                color: white;
+            }
+
+            li[item-name='mango']
+            {
+                color: yellow;
+            }
+
+            li[item-name*='mango']
+            {
+                color: yellow;
+            }
+
+            li[item-name^='green']
+            {
+                color: green;
+            }
+
+            li[item-name$='mango']
+            {
+                color: red;
+            }
+
+            li[item-name]
+            {
+                font-weight: bold;
+            }
+
+
+            ol >  li:first-child
+            {
+                color: red;
+            }
+
+            ol > li:last-child
+            {
+                color:aqua;
+            }
+
+            ol > li:nth-child(odd)
+            {
+                font-weight: bold;
+            }
+
+            ol > li:nth-child(even)
+            {
+                font-size: 20px;
+            }
+
+            #swift
+            {
+                background-color: red;
+            }
+
+            ul > li::after{
+                 content: ' (offer)';
+            }
+
+            ul > li:nth-child(3):before{
+                 content: '*';
+            }
+*/
+
+.box
+{
+    width: 300px;
+    height: 300px;
+    background-color: red;
+    position:absolute;
+}
+/*
+.box:hover
+{
+    /*transform: translate(100px,100px);
+    transform: rotate(20deg);
+    transform: scale(2,1.5);
+    transform: skew(15deg,20deg)
+    border-radius: 300px;
+    background-image : linear-gradient(to right,orange,yellow) ;
+    width: 400px;
+    transition-duration: 3s;
+    transition-delay: 2s;
+}
+
+.box:active
+{
+    transform: translateX(150px);
+}
+*/
+
+@keyframes mysampleframes {
+   /* from{
+        background-color: red;
+        width: 300px;
+    }
+    
+    to{
+        background-color: yellow;
+        width: 100%;
+
+    }*/
+    0%{
+        background-color: red;
+        width: 300px;
+    }
+    25%{
+        background-color: blue;
+        border-top-right-radius: 10px;
+    }
+    50%{
+        background-color: orange;
+        border-radius: 50px;
+    }
+    100%{
+        background-color: yellow;
+        border-radius: 500px;
+    }
+}
+
+.box:hover{
+
+    animation: mysampleframes;
+    animation-duration: 3s;
+    animation-iteration-count: 2;
+}

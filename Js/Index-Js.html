@@ -1,0 +1,130 @@
+<html>
+    <head></head>
+    <body>
+        <!--
+        <h1 id="pageHeading"></h1>
+        <input type="text"
+                id="txtCTC"
+                value="0" />
+
+        <select id="ddlEmployeeType">
+            <option value="govt">Government</option>
+            <option value="sal">Salaried</option>
+        </select>
+
+        <button type="text" onclick="showHeading(10)">
+          Calculate Tax
+        </button>-->
+
+        <input type="text" id="txtFruitName" placeholder="Enter your fav fruit" />
+        <button type="button" onclick="showCars()">Add Item</button>
+        <ul id="fruitList">
+
+        </ul>
+
+        <ul id="carList">
+
+        </ul>
+        
+
+        <script>
+
+            let fruits = [];    
+            let cars = [];
+
+            function showCars()
+            {
+                cars.push({Name:"BMW", Model: "M3", Color : "Blue"});
+                cars.push({Name:"Benz", Model: "C Class", Color : "Red"});
+                cars.push({Name:"Volvo", Model: "c9", Color : "Black"});
+
+                for(var i =0;i<cars.length;i++)
+                {
+                    console.debug(cars[i].Name +"-" + cars[i].Color);
+                }
+            }
+
+            function printArray()
+            {
+                
+                let fruitName = document
+                                .getElementById("txtFruitName").value;
+                fruits.push(fruitName);
+                /*fruits.push("Mango");
+                fruits.push("Apple");
+                fruits.push("Grapes");*/
+
+                var element = document.getElementById("fruitList");
+                element.innerHTML = "";
+
+                for(var i=0;i<fruits.length;i++)
+                {
+                    var lielement = document.createElement("li");
+                    lielement.innerHTML = fruits[i];
+                    element.appendChild(lielement);
+
+                    console.debug(fruits[i]);
+                }
+            }
+
+            function printNumbers()
+            {
+                let counter = 0;
+
+                /*
+                while(counter < 10)
+                {
+                    console.info(counter);
+                    counter += 1;
+                }
+
+                do
+                {
+                    console.debug(counter);
+                    counter += 1;
+
+                }while(counter < 10);*/
+
+                for(var i=0;i<10;i++)
+                    console.debug(i);
+
+            }
+
+
+            function showHeading(param1)
+            {
+                var ctc  = Number(document.getElementById("txtCTC").value);
+                var type = document.getElementById("ddlEmployeeType").value;
+
+                var taxPer = 0;
+
+                
+                 if(type == "sal")
+                 {
+                     if(ctc > 200000)
+                     {
+                         taxPer = .10;
+                     }
+                 }
+
+                 alert("Tax : " + (ctc * taxPer));
+
+                /*
+                var message = param1 + document
+                                    .getElementById("txtMessage")
+                                    .value;
+                                    // "Hello World";
+                document.getElementById("pageHeading")
+                        .innerHTML = message;*/
+
+               // var textValue = document.getElementById("txtMessage").value;
+               // alert(Number(textValue) + param1);
+
+            }
+            
+           // alert(message);
+        </script>
+
+<script src="sample.js"></script>
+    </body>
+</html>

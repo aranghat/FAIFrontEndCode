@@ -1,0 +1,65 @@
+<html>
+    <head></head>
+    <body>
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+        <p>Paragraph 3</p>
+        <p>Paragraph 4</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Total Amount Invested</th>
+                    <th>Current Profit</th>
+                    <th>Net Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>20000</td>
+                    <td>2000</td>
+                    <td>22000</td>
+                </tr>
+                <tr>
+                    <td>10000</td>
+                    <td>-2000</td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                    <td>10000</td>
+                    <td>2000</td>
+                    <td>12000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h1 id="time"></h1>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <script>
+            $("p").each(function(index,element){
+                var currentContent = $(element).html();
+                $(element).html(index + " . " + currentContent);
+            });
+
+            $("table > tbody > tr > td:nth-child(2)").each(function(index,ele){
+                    var color = Number($(ele).html()) > 0 
+                    ? "green" : "red";
+                    $(ele).css("color",color);
+            });
+
+            setTimeout(function(){
+                $("#time").html(Date());
+
+            },5000);
+
+            setInterval(function(){
+                $("#time").html(Date());
+
+            },1000);
+
+        </script>
+
+    </body>
+</html>

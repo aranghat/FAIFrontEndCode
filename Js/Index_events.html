@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <style>
+            li[isfav='true']
+            {
+                font-weight: bold;
+                font-size: 32px;
+            }   
+        </style>
+    </head>
+    <body>
+        <input type="text" id="txtFruitName" placeholder="Fruit Name" />
+        <input type="checkbox" id="chkIsFav" /> Is Fav
+        <button type="button" onclick="addFruit()">Add to the list</button>
+        <ul id="favFruits">
+            <li id="1" data-color="yellow" 
+            isfav="false" 
+            onclick="markAsFav(1);">Mango</li>
+            <li id="2" data-color="red" isfav="false" onclick="markAsFav(2)">Apple</li>
+            <li id="3" data-color="violet" isfav="false" onclick="markAsFav(3)">Grapes</li>
+            <li id="4" data-color="orange" isfav="false" onclick="markAsFav(4)">Orange</li>
+            <li id="5" data-color="yellow" isfav="false" onclick="markAsFav(5)">Banana</li> 
+        </ul>
+        <script>
+            var liItems = document.getElementsByTagName("li");
+            let totalElements = liItems.length;
+            
+            function addFruit()
+            {
+                
+                var fruitName = document.getElementById("txtFruitName").value;
+                var isFavFruit = document.getElementById("chkIsFav").checked;
+                
+                var element = document.createElement("li");
+                element.innerHTML = fruitName;
+                element.setAttribute("isfav",isFavFruit);
+
+                var id = ++totalElements;
+
+                element.id =  id;
+                element.addEventListener("click",()=>markAsFav(id))
+
+                var parent = document.getElementById("favFruits");
+                parent.appendChild(element);
+            }
+
+            for(var i=0;i<liItems.length;i++)
+            {
+                /*var content = liItems[i].innerHTML;
+                
+                if(content == "Mango" || content == "Orange")
+                {
+                    liItems[i].style.color = "orange";
+                }
+                else
+                {
+                    liItems[i].style.color = "red";
+                }*/
+                
+                var eleColor = liItems[i].getAttribute("data-color");
+                liItems[i].style.color = eleColor;
+                console.debug(liItems[i].innerHTML);
+            }
+
+            function markAsFav(id)
+            {
+                var element = document.getElementById(id);
+                element.setAttribute("isfav","true");
+            }
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+    <head></head>
+    <body>
+        <div id="content"></div>
+        <button type="button" onclick="showDialogBox()">click</button>
+
+        <script>
+            function showDialogBox()
+            {
+                //alert("Hello");
+                /*
+                var result = prompt("Hello, What is your name");
+                if(result)
+                {
+                    document.getElementById("content").innerHTML = result;
+                }
+                else
+                    console.debug("User cancelled the prompt");*/
+
+                var result = confirm("Do you want to continue with this operation ?");
+
+                if(result)
+                {
+                    console.debug("Proceed");
+                }
+                else
+                    console.error("User cancelled the operation");
+
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,96 @@
+<html>
+    <head>
+
+        <style>
+            .edited
+            {
+                border: 1px solid red;
+            }
+
+            
+
+        </style>
+    </head>
+    <body>
+        <button id="btnAddPara" type="button">Add a Paragraph</button>
+        <button type="button" target="#p1" id="btnToggle">Toggle Content</button>
+        <div id="content">
+            <p id="p00">
+                This is a first paragragh
+            </p>
+            <p>
+                This is a second paragra
+            </p>
+            <p>
+                This is the third paragrah
+            </p>
+        </div>
+
+        <h1 toggle="#p1">Topic 1</h1>
+        <p id="p1">
+            Details for Topic 1
+        </p>
+        <h1 toggle="#p2">Topic 2</h1>
+        <p id="p2">
+            Details for Topic 2
+        </p>
+        <h1 toggle="#p3">Topic 3</h1>
+        <p id="p3">
+            Details for Topic 3
+        </p>
+      
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+          $(document).ready(
+            function(){
+                console.debug("Document is loaded");
+
+                $("#btnAddPara").click(function(){
+                    var paragragh = prompt("Enter content");
+                    $("body").append($("<p>"+paragragh+"</p>"));
+                });
+
+                $("p").on('click',function() {
+                    //var content = $(this).html();
+                    //alert(content);
+
+                    $(this).css("background-color","yellow");
+                });
+
+                $("body").on("click","p",function(){
+                    $(this).css("background-color","yellow");
+                    //$(this).removeClass("edited");
+                    $(this).toggleClass('edited');
+                    $(this).attr("isfav","true");
+                });
+
+                $("body").on("dblclick","p",function(){
+                    var content = prompt("Enter the new data");
+                    if(content)
+                    {
+                        $(this).html(content);
+                        $(this).addClass("edited");
+                    }
+                });
+
+                $("#btnToggle").click(function(){
+                    //$("#content").hide();
+                    //$("#content").show();
+                    var targetEle = $(this).attr("target");
+                    $(targetEle).toggle('slow');
+                });
+
+                $("h1").click(function(){
+                     var target = $(this).attr("toggle");
+                     $(target).toggle();
+
+                });
+            }
+
+
+          );
+
+
+        </script>
+    </body>
+</html>
